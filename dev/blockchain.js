@@ -3,7 +3,8 @@ function Blockchain() {
     // blocks that we create or mine will be stored in this chain array 
     this.chain = [];
     // we will hold all the new transactions here before pushing it to the block and mined 
-    this.newTransactions = [];
+    this.pendingTransactions = [];
+
 }
 Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) {
     /**
@@ -24,21 +25,46 @@ Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) 
          */
         index: this.chain.length + 1, //block number in our chain
         timestamp: Date.now(), // when the block was created
-        transactions : this.newTransactions, // this will put all the transaction in newTransaction array
-        nonce : nonce,
+        transactions: this.pendingTransactions, // this will put all the transaction in newTransaction array
+        nonce: nonce,
         hash: hash,
-        previousBlockHash : previousBlockHash
+        previousBlockHash: previousBlockHash
 
     };
     /**
      * we do this once we create a new block, we put all of the new transaction in this block
-     * so we want to clear out newTransactions array so that we can start over for new block
+     * so we want to clear out pendingTransactions array so that we can start over for new block
      */
-    this.newTransactions = [];
+    this.pendingTransactions = [];
     // this takes the new block and pushes to the chain in chain array
     this.chain.push(newBlock);
     return newBlock;
 }
+/**
+ * This would be used to return the last hash of last block address
+ */
+Blockchain.prototype.getLastBlock = function () {
+    return this.chain[this.chain.length - 1]
+}
+
+/**
+ * 
+ * @amount -> the nonuce of the trasnaction / the amount being send
+ * @sender -> senders address
+ * @recipient -> recipinet address
+ */
+Blockchain.prototype.createNewTransaction = function (amount, sender, recipient) {
+    const newTransaction = {
+        //object
+        amount: amount,
+        sender: sender,
+        recipient: recipient
+    };
+    this.pendingTransactions.push(newTransaction);
+    // this.getLastBlock()['index'] is last block in the chain
+    return this.getLastBlock()['index'] + 1;
+};
+
 /*
  * Exporting the Blockchain Constructor function 
  */
