@@ -1,3 +1,4 @@
+const sha256 = require('sha256');
 function Blockchain() {
     // constructor function, called as soon as this blockchain.js is called 
     // blocks that we create or mine will be stored in this chain array 
@@ -68,8 +69,12 @@ Blockchain.prototype.createNewTransaction = function (amount, sender, recipient)
  * 
  * it will take the blockdata and convert it to comressed string or hash which would be of fixed length 
  */
-Blockchain.prototype.hashBlock = function(blockData){
+Blockchain.prototype.hashBlock = function (previousBlockHash, currentBlockData, nonce) {
+    const dataAsString = previousBlockHash + nonce.toString() + JSON.stringify(currentBlockData);
+    const hash = sha256(dataAsString); 
+    return hash;
     //return 'ABFHJBDJBFDBS'
+
 }
 
 /*
