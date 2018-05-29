@@ -5,6 +5,13 @@ function Blockchain() {
     this.chain = [];
     // we will hold all the new transactions here before pushing it to the block and mined 
     this.pendingTransactions = [];
+    /**
+     * Genesys block - the first in the chain
+     * it has not nonce, as we dont verify it using Proof of Work
+     * it has no previousBlockHash as well as it is the first
+     * hash can be anything (I am keeping it as 0)
+     */
+    this.createNewBlock(100,'0','0')
 
 }
 Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) {
