@@ -24,10 +24,10 @@ Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) 
          */
         index: this.chain.length + 1, //block number in our chain
         timestamp: Date.now(), // when the block was created
-        transactions = this.newTransactions, // this will put all the transaction in newTransaction array
-        nonce = nonce,
+        transactions : this.newTransactions, // this will put all the transaction in newTransaction array
+        nonce : nonce,
         hash: hash,
-        previousBlockHash = previousBlockHash
+        previousBlockHash : previousBlockHash
 
     };
     /**
@@ -39,3 +39,7 @@ Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) 
     this.chain.push(newBlock);
     return newBlock;
 }
+/*
+ * Exporting the Blockchain Constructor function 
+ */
+module.exports = Blockchain;
