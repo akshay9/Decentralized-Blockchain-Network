@@ -64,6 +64,13 @@ Blockchain.prototype.createNewTransaction = function (amount, sender, recipient)
     // this.getLastBlock()['index'] is last block in the chain
     return this.getLastBlock()['index'] + 1;
 };
+/**
+ * 
+ * it will take the blockdata and convert it to comressed string or hash which would be of fixed length 
+ */
+Blockchain.prototype.hashBlock = function(blockData){
+    //return 'ABFHJBDJBFDBS'
+}
 
 /*
  * Exporting the Blockchain Constructor function 
