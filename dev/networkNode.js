@@ -43,4 +43,21 @@ app.get('/mine', function (req, res) {
     });
 });
 
+//REGISTED NODE and broadcast to whole network
+app.post('/request-and-broadcast-node', function (req, res) {
+    const newNodeUrl = req.body.newNodeUrl;
+});
+// register a node with a network
+app.post('/register-node', function (req, res) {
+    const newNodeUrl = req.body.newNodeUrl;
+});
+
+app.post('/register-nodes-bulk', function (req, res) {
+    const newNodeUrl = req.body.newNodeUrl;
+});
+
+
+
+
+
 app.listen(port);
