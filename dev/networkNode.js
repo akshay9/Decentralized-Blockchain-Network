@@ -3,6 +3,7 @@ const app = express();
 const bodyParser = require('body-parser');
 const Blockchain = require('./blockchain');
 const uuid = require('uuid/v1');
+const port = process.argv[2];
 // we will ise UUID random srting as the node address
 
 const bitcoin = new Blockchain();
@@ -42,4 +43,4 @@ app.get('/mine', function (req, res) {
     });
 });
 
-app.listen(4001);
+app.listen(port);

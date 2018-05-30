@@ -1,4 +1,6 @@
 const sha256 = require('sha256');
+const currentNodeUrl = process.argv[3]
+
 /**
  * I am using a constructor as a personal preference. If you are using any other language apart from JS prefer using a class structure
  */
@@ -8,13 +10,16 @@ function Blockchain() {
     this.chain = [];
     // we will hold all the new transactions here before pushing it to the block and mined 
     this.pendingTransactions = [];
+    // this is used to set the node url set in package-json file
+    this.currentNodeUrl = currentNodeUrl;
+    this.networkNode = [];
     /**
      * Genesys block - the first in the chain
      * it has not nonce, as we dont verify it using Proof of Work
      * it has no previousBlockHash as well as it is the first
      * hash can be anything (I am keeping it as 0)
      */
-    this.createNewBlock(100,'0','0')
+    this.createNewBlock(100, '0', '0')
 
 }
 Blockchain.prototype.createNewBlock = function (nonce, previousBlockHash, hash) {
@@ -97,7 +102,7 @@ Blockchain.prototype.proofOfWork = function (previousBlockHash, currentBlockData
     while (hash.substring(0, 4) !== '0000') {
         nonce++;
         hash = this.hashBlock(previousBlockHash, currentBlockData, nonce);
-     }
+    }
     return nonce;
 }
 
