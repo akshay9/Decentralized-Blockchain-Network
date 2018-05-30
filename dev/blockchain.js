@@ -1,6 +1,6 @@
 const sha256 = require('sha256');
 /**
- * I am using a constructor as a personal preference. If you are using any other language apart from JS prefer usign a class structure
+ * I am using a constructor as a personal preference. If you are using any other language apart from JS prefer using a class structure
  */
 function Blockchain() {
     // constructor function, called as soon as this blockchain.js is called 
