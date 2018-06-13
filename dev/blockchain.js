@@ -12,6 +12,7 @@ function Blockchain() {
     this.pendingTransactions = [];
     // this is used to set the node url set in package-json file
     this.currentNodeUrl = currentNodeUrl;
+    //this.networkNode fill up with node urls all other nodes in URL
     this.networkNode = [];
     /**
      * Genesys block - the first in the chain
