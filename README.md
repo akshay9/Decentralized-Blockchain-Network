@@ -12,7 +12,7 @@ Blockchain and decentralized network using NodeJS and ExpressJS.
 
 ### If you like the Repository, show some love by clicking :star:  on top right.
 
-### PS: If you want to add something else , feel free to open a PR.
+#### PS: If you want to add something else , feel free to open a PR.
 
 
 
