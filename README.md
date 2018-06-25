@@ -10,4 +10,9 @@ Blockchain and decentralized network using NodeJS and ExpressJS.
 1. (Optional) To Look all transaction/Block/Address in a GUI navigate to ../dev/Block-Explorer and run ```index.html``` file and you can see all the data in GUI.
 
 
-### If you like the Repository, show some love by clicking :star: Star on top right.
+### If you like the Repository, show some love by clicking :star:  on top right.
+
+### PS: If you want to add something else , feel free to open a PR.
+
+
+
